@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AK Projetos e Consultoria: especialistas em projetos de engenharia, arquitetura, vigilância sanitária e regularização de imóveis em Toledo e todo o estado do Paraná." />
+  <meta name="keywords" content="projetos engenharia, arquitetura, vigilância sanitária, regularização imóvel, Toledo, Paraná, AK Projetos" />
+  <title>AK Projetos e Consultoria | Engenharia e Arquitetura</title>
+
+  <link rel="icon" href="assets/AKPRETO.ico" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- RemixIcon para ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#E84118',
+            'brand-dark': '#E84118',
+            'brand-light': '#E84118',
+            dark: '#1A1A1A',
+            'dark-2': '#2a2a2a',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Estilos principais e animações -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-sans text-dark bg-white">
+
+  <!-- ================================================
+       BARRA DE PROGRESSO DE LEITURA
+  ================================================ -->
+  <div id="ak-progress"></div>
+
+  <!-- ================================================
+       HEADER / NAVEGAÇÃO
+  ================================================ -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-400 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <div class="flex items-center cursor-pointer" id="logo-home">
+        <!-- Logo branca (visível no topo, sobre o hero escuro) -->
+        <img
+          src="assets/AKPROJETOSECONSULTORIABRANCO.png"
+          alt="AK Projetos e Consultoria"
+          class="ak-logo-white h-10 w-auto object-contain transition-all duration-400"
+        />
+        <!-- Logo preta (visível após scroll, header branco) -->
+        <img
+          src="assets/AKPROJETOSECONSULTORIAPRETO.png"
+          alt="AK Projetos e Consultoria"
+          class="ak-logo-dark h-10 w-auto object-contain transition-all duration-400 hidden"
+        />
+      </div>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-8">
+        <button class="nav-btn text-white font-medium text-sm hover:text-brand transition-colors" data-target="servicos">Serviços</button>
+        <button class="nav-btn text-white font-medium text-sm hover:text-brand transition-colors" data-target="sobre">Sobre</button>
+        <button class="nav-btn text-white font-medium text-sm hover:text-brand transition-colors" data-target="contato">Contato</button>
+        <button
+          class="bg-brand text-white font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-brand-dark transition-all duration-200 hover:-translate-y-0.5 shadow-md"
+          data-target="contato"
+        >
+          Solicitar Orçamento
+        </button>
+      </nav>
+
+      <!-- Botão Menu Mobile -->
+      <button id="mobile-menu-btn" class="md:hidden text-white p-2 rounded-lg transition-colors" aria-label="Abrir menu">
+        <i class="ri-menu-3-line text-2xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================================================
+       MENU MOBILE (overlay)
+  ================================================ -->
+  <div id="mobile-nav" class="ak-mobile-nav" aria-hidden="true">
+    <div class="ak-mobile-links">
+      <button class="nav-btn" data-target="servicos">Serviços</button>
+      <button class="nav-btn" data-target="sobre">Sobre</button>
+      <button class="nav-btn" data-target="contato">Contato</button>
+      <hr class="ak-mobile-divider" />
+      <button class="ak-cta-mobile nav-btn" data-target="contato">Solicitar Orçamento</button>
+    </div>
+  </div>
+
+  <!-- ================================================
+       SEÇÃO HERO
+  ================================================ -->
+  <section
+    id="hero"
+    class="relative min-h-screen flex items-center bg-dark overflow-hidden"
+  >
+    <!-- Padrão geométrico decorativo de fundo -->
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 w-full pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12">
+
+      <!-- Conteúdo principal -->
+      <div class="flex-1 ak-hero-content text-center lg:text-left">
+        <!--<p class="text-brand font-semibold text-sm uppercase tracking-widest mb-4">Toledo – PR</p>-->
+        <h1 class="font-display text-4xl md:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-6">
+          Proteção contra<br/>
+          <span class="text-brand">Incêndio</span> com
+          <span class="text-brand">Responsabilidade</span><br/>
+          Técnica
+        </h1>
+        <p class="text-white/70 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          Projetos técnicos, laudos e regularização completa para seu imóvel junto ao CBMPR. Segurança, agilidade e aprovação garantida em todo o estado do Paraná.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <button
+            class="bg-brand text-white font-bold px-8 py-4 rounded-full text-base hover:bg-brand-dark hover:-translate-y-1 transition-all duration-200 shadow-lg shadow-orange-900/30 nav-btn"
+            data-target="contato"
+          >
+            Solicitar Orçamento Gratuito
+          </button>
+          <button
+            class="border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-base hover:border-brand hover:text-brand transition-all duration-200 nav-btn"
+            data-target="servicos"
+          >
+            Nossos Serviços
+          </button>
+        </div>
+        
+        <!-- Selos de Confiança -->
+        <div class="flex flex-wrap items-center gap-6 mt-20">
+  
+          <!-- Item 1: CREA
+          <div class="flex items-center gap-3 text-white/80">
+            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+              <i class="ri-award-line text-lg text-brand"></i>
+            </div>
+            <span class="text-xs font-bold tracking-wider">CREA Registrado</span>
+          </div>-->
+
+          <!-- Item 2: CBMPR -->
+          <div class="flex items-center gap-3 text-white/80">
+            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+              <i class="ri-building-line text-lg text-brand"></i>
+            </div>
+            <span class="text-xs font-bold tracking-wider">CBMPR Aprovado</span>
+          </div>
+
+          <!-- Item 3: Atendimento -->
+          <div class="flex items-center gap-3 text-white/80">
+            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+              <i class="ri-time-line text-lg text-brand"></i>
+            </div>
+            <span class="text-xs font-bold tracking-wider">Atendimento Rápido</span>
+          </div>
+
+        </div>
+
+        <!-- Estatísticas rápidas
+        <div class="flex gap-8 mt-12 justify-center lg:justify-start">
+          <div>
+            <p class="text-brand font-extrabold text-3xl font-display">+500</p>
+            <p class="text-white/50 text-sm">Projetos aprovados</p>
+          </div>
+          <div class="border-l border-white/10 pl-8">
+            <p class="text-brand font-extrabold text-3xl font-display">+10</p>
+            <p class="text-white/50 text-sm">Anos de experiência</p>
+          </div>
+          <div class="border-l border-white/10 pl-8">
+            <p class="text-brand font-extrabold text-3xl font-display">PR</p>
+            <p class="text-white/50 text-sm">Paraná</p>
+          </div>
+        </div>-->
+      </div>
+
+
+      <!-- Card Hero -->
+      <div 
+        class="ak-hero-card w-full max-w-lg backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-2xl"
+        style="background: linear-gradient(135deg, rgba(2, 2, 41, 0.7), rgba(2, 7, 33, 0.7));"
+      >
+        
+        <h2 class="text-white font-bold text-xl mb-8">POR QUE NOS ESCOLHER?</h2>
+
+        <!-- Lista de Benefícios (mantendo seus ícones originais) -->
+        <div class="space-y-6 mb-8">
+          <!-- Item 1 -->
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="ri-file-text-line text-orange-500 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-bold">Projetos Aprovados</h3>
+              <p class="text-white/70 text-sm">Elaboramos projetos em conformidade total com as normas do CBMPR e ABNT.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="ri-map-pin-line text-orange-500 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-bold">Todo o estado do PR</h3>
+              <p class="text-white/70 text-sm">Atendemos imóveis em Toledo e todo o estado do Paraná</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="ri-customer-service-2-line text-orange-500 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-bold">Suporte Completo</h3>
+              <p class="text-white/70 text-sm">Acompanhamos todo o processo, do projeto à aprovação final</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-white/10 mb-6">
+
+        <!-- Tipos de Imóveis -->
+        <p class="text-white/80 text-sm mb-4">Tipos de imóveis atendidos:</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full border border-white/20 text-white text-xs bg-white/5">Comercial</span>
+          <span class="px-3 py-1 rounded-full border border-white/20 text-white text-xs bg-white/5">Industrial</span>
+          <span class="px-3 py-1 rounded-full border border-white/20 text-white text-xs bg-white/5">Residencial</span>
+          <span class="px-3 py-1 rounded-full border border-white/20 text-white text-xs bg-white/5">Hospitalar</span>
+          <span class="px-3 py-1 rounded-full border border-white/20 text-white text-xs bg-white/5">Educacional</span>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- ================================================
+       SEÇÃO SERVIÇOS
+  ================================================ -->
+  <section id="servicos" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+      <!-- Cabeçalho -->
+      <div class="text-center mb-16 ak-reveal">
+        <p class="text-brand font-semibold text-sm uppercase tracking-widest mb-3">O que fazemos</p>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold text-dark mb-4">Soluções Completas em <span class="text-brand">Prevenção</span> e <span class="text-brand">Regularização</span></h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          Da elaboração do projeto à aprovação final no CBMPR, cuidamos de todo o processo
+          para que seu imóvel esteja em conformidade com as normas de segurança contra incêndio.
+        </p>
+      </div>
+
+      <!-- Grid de cards (6 serviços) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1: Prevenção contra Incêndio -->
+        <div class="ak-service-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 ak-reveal ak-reveal-delay-1">
+          <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="ri-fire-line text-brand text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-dark mb-3">Prevenção contra Incêndio</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Elaboração de projetos técnicos de prevenção e combate a incêndio, conforme normas do CBMPR e ABNT.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> AVCB e CLCB
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Sprinklers
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Hidrantes e extintores
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Alarme e Detecção
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Iluminação de Emergência
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Regularização de Imóveis -->
+        <div class="ak-service-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 ak-reveal ak-reveal-delay-1">
+          <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="ri-building-2-line text-brand text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-dark mb-3">Regularização de Imóveis</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Regularização Completa do seu imóvel junto ao Corpo de Bombeiros Militar do Paraná, do início ao fim.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Alvarás e licenças dos bombeiros
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Vistoria Técnica
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Acompanhamento do Processo
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Renovação de AVCB / CLCB
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Laudos técnicos -->
+        <div class="ak-service-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 ak-reveal ak-reveal-delay-2">
+          <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-5">
+            <!-- Ícone alterado para ri-file-text-line -->
+            <i class="ri-file-text-line text-brand text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-dark mb-3">Laudos Técnicos</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Emissão de laudos técnicos para fins de seguro, financiamento, venda ou exigência legal do imóvel.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Laudo de Vistoria
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Laudo de Conformidade
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Relatório Fotográfico
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Parecer Técnico
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Consultoria Técnica-->
+        <div class="ak-service-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 ak-reveal ak-reveal-delay-2">
+          <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-5">
+            <!-- Ícone alterado para ri-search-line -->
+            <i class="ri-search-line text-brand text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-dark mb-3">Consultoria Técnica</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Consultoria especializada para adequação de imóveis às normas de segurança contra incêndio.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Análise de Risco
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Plano de Emergência
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Adequação Normativa
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 5: PROJETOS DE GRANDE PORTE (Arquitetônico, Vigilância Sanitária, Arquitetura em geral) -->
+        <div class="ak-service-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 ak-reveal ak-reveal-delay-3">
+          <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="ri-ruler-2-line text-brand text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-dark mb-3">Projetos de Grande Porte</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Projetos customizados para edificações com características de grande porte.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Shoppings e Galerias
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Hospitais e Clínicas
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Indústrias
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Condomínios
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Postos de Combustível
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 6: Projetos Especiais -->
+        <div class="ak-service-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 ak-reveal ak-reveal-delay-3">
+          <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-5">
+            <i class="ri-community-line text-brand text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-dark mb-3">Projetos Especiais</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Soluções para empreendimentos especiais.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Projeto Arquitetônico
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> Projeto de Vigilância Sanitária
+            </li>
+            <li class="flex items-center gap-2 text-xs text-gray-500">
+              <i class="ri-check-line text-brand"></i> As built
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /grid -->
+    </div>
+  </section>
+
+  <!-- ================================================
+       BANNER CTA (imagem de fundo gerada em SVG)
+  ================================================ -->
+  <section class="ak-cta-banner relative overflow-hidden py-24">
+    <!-- Fundo arquitetônico SVG inline -->
+    <div class="ak-cta-bg" aria-hidden="true"></div>
+    <div class="ak-cta-overlay" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
+      <div class="flex justify-center mb-6">
+        <img 
+          src="assets/AKBRANCO.png" 
+          alt="AK Projetos e Consultoria" 
+          class="h-16 w-auto object-contain"
+        />
+      </div>
+      <h2 class="font-display text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+        Seu imóvel precisa estar
+        <span class="text-brand">Regularizado.</span>
+        Não espere uma
+        <span class="text-brand">Fiscalização</span>
+      </h2>
+      <p class="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
+        Evite multas, interdições e riscos.
+        A Ak Projetos e Consultoria cuida de todo o processo de regularização do seu imóvel junto ao CBMPR com agilidade e segurança.
+      </p>
+      <button
+        class="bg-brand text-white font-bold px-10 py-4 rounded-full text-base hover:bg-brand-dark hover:-translate-y-1 transition-all duration-200 shadow-xl shadow-orange-900/40 nav-btn"
+        data-target="contato"
+      >
+        Solicitar Orçamento Gratuito
+      </button>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SEÇÃO SOBRE
+  ================================================ -->
+  <section id="sobre" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+      <!-- Cabeçalho -->
+      <div class="text-center mb-16 ak-reveal">
+        <p class="text-brand font-semibold text-sm uppercase tracking-widest mb-3">Quem somos</p>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold text-dark mb-4">Sobre a AK Projetos</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          Uma empresa comprometida com a qualidade técnica, a agilidade nos processos
+          e a total satisfação de cada cliente.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Imagem do empresário/equipe -->
+        <div class="ak-reveal">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl ak-sobre-img-wrap">
+            <!--
+              INSTRUÇÃO AO DESENVOLVEDOR:
+              Substitua a imagem abaixo pela foto do empresário/responsável técnico da AK Projetos.
+              Caminho sugerido: assets/images/empresario.jpg
+              A imagem deve mostrar o profissional em ambiente de trabalho (escritório ou obra).
+            -->
+            <img
+              src="assets/ceo.jpeg"
+              alt="Responsável técnico da AK Projetos e Consultoria"
+              class="w-full h-96 lg:h-[500px] object-cover object-center"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <!-- Placeholder caso a imagem não seja encontrada -->
+            <div
+              class="w-full h-96 lg:h-[500px] bg-gradient-to-br from-gray-800 to-dark flex flex-col items-center justify-center"
+              style="display:none;"
+            >
+              <i class="ri-user-3-line text-brand text-6xl mb-4"></i>
+              <p class="text-white/60 text-sm text-center px-8">
+                Insira aqui a foto do responsável técnico da AK Projetos<br/>
+                <span class="text-brand text-xs">(assets/ceo.jpeg)</span>
+              </p>
+            </div>
+            <!-- Badge de destaque -->
+            <div class="absolute bottom-6 left-6 bg-white rounded-2xl px-5 py-3 shadow-xl flex items-center gap-3">
+              <div class="w-10 h-10 bg-brand rounded-xl flex items-center justify-center">
+                <i class="ri-award-line text-white"></i>
+              </div>
+              <div>
+                <p class="text-dark font-bold text-sm">Responsável Técnico</p>
+                <p class="text-gray-400 text-xs">Augusto Karnopp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto e diferenciais -->
+        <div class="ak-reveal ak-reveal-delay-1">
+          <h3 class="font-display text-2xl md:text-3xl font-extrabold text-dark mb-5 leading-snug">
+            Excelência técnica a serviço<br/>
+            <span class="text-brand">do seu negócio</span>
+          </h3>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            A AK Projetos e Consultoria é uma empresa especializada em engenharia e arquitetura,
+            atuando em Toledo e em todo o estado do Paraná. Com uma equipe de profissionais
+            altamente qualificados, oferecemos soluções técnicas completas para regularização
+            de imóveis, projetos de prevenção contra incêndio, projetos arquitetônicos e muito mais.
+          </p>
+          <p class="text-gray-500 leading-relaxed mb-8">
+            Nossa missão é garantir que cada cliente tenha seu imóvel regularizado com total
+            segurança jurídica e técnica, cumprindo todas as normas e exigências dos órgãos
+            competentes do Paraná.
+          </p>
+
+          <!-- Diferenciais -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="ri-time-line text-brand"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-dark text-sm">Agilidade</p>
+                <p class="text-gray-400 text-xs leading-relaxed">Processos rápidos sem abrir mão da qualidade</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="ri-shield-line text-brand"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-dark text-sm">Segurança</p>
+                <p class="text-gray-400 text-xs leading-relaxed">Projetos aprovados seguindo todas as normas</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="ri-team-line text-brand"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-dark text-sm">Equipe Especializada</p>
+                <p class="text-gray-400 text-xs leading-relaxed">Equipe técnica experiente</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="ri-map-pin-line text-brand"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-dark text-sm">Toledo – PR</p>
+                <p class="text-gray-400 text-xs leading-relaxed">Atendemos todo o estado do Paraná</p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="mt-8 bg-brand text-white font-bold px-8 py-3.5 rounded-full hover:bg-brand-dark hover:-translate-y-0.5 transition-all duration-200 text-sm shadow-lg shadow-orange-900/20 nav-btn"
+            data-target="contato"
+          >
+            Solicite seu Orçamento
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SEÇÃO CONTATO
+  ================================================ -->
+  <section id="contato" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+      <!-- Cabeçalho -->
+      <div class="text-center mb-16 ak-reveal">
+        <p class="text-brand font-semibold text-sm uppercase tracking-widest mb-3">Fale conosco</p>
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold text-dark mb-4">Entre em Contato</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          Solicite seu orçamento sem compromisso. Nossa equipe retornará em até 24 horas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Informações de contato -->
+        <div class="ak-reveal">
+          <h3 class="font-display text-xl font-bold text-dark mb-6">Informações de Contato</h3>
+
+          <div class="space-y-5">
+            <a href="tel:+5545999831231" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center group-hover:bg-brand transition-colors duration-200 flex-shrink-0">
+                <i class="ri-phone-line text-brand group-hover:text-white text-lg transition-colors duration-200"></i>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 mb-0.5">Telefone / WhatsApp</p>
+                <p class="font-semibold text-dark text-sm">(45) 99983-1231</p>
+              </div>
+            </a>
+
+            <a href="mailto:atendimento@projetosak.com.br" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center group-hover:bg-brand transition-colors duration-200 flex-shrink-0">
+                <i class="ri-mail-line text-brand group-hover:text-white text-lg transition-colors duration-200"></i>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 mb-0.5">E-mail</p>
+                <!-- SUBSTITUA pelo e-mail real da AK Projetos -->
+                <p class="font-semibold text-dark text-sm">atendimento@projetosak.com.br</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-map-pin-line text-brand text-lg"></i>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 mb-0.5">Localização</p>
+                <p class="font-semibold text-dark text-sm">Toledo – PR</p>
+                <p class="text-gray-400 text-xs">Atendemos todo o Paraná</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logo no rodapé do card de contato -->
+          <div class="mt-10 pt-8 border-t border-gray-200">
+            <img
+              src="assets/AKPROJETOSECONSULTORIAPRETO.png"
+              alt="AK Projetos e Consultoria"
+              class="h-10 w-auto object-contain mb-3"
+            />
+            <p class="text-gray-400 text-xs">
+              Engenharia e Arquitetura com excelência.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formulário seguro -->
+        <div class="ak-reveal ak-reveal-delay-1">
+          <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <h3 class="font-display text-xl font-bold text-dark mb-6">Solicitar Orçamento</h3>
+
+            <!--
+              FORMULÁRIO SEGURO:
+              Os dados são enviados via HTTPS (encriptação TLS) diretamente para o e-mail
+              da AK Projetos através de um serviço de backend seguro (Formspree ou similar).
+
+              INSTRUÇÃO AO DESENVOLVEDOR:
+              1. Cadastre-se em https://formspree.io (gratuito)
+              2. Crie um formulário e copie o endpoint gerado
+              3. Substitua ACTION_URL abaixo pelo endpoint do Formspree:
+                 Exemplo: https://formspree.io/f/xnqkwrjb
+              4. Os dados chegam criptografados diretamente ao e-mail do cliente
+              5. NUNCA exponha credenciais de API ou senhas no código front-end
+
+              ALTERNATIVAS DE BACKEND SEGURO:
+              - Formspree (https://formspree.io) — recomendado, fácil, sem servidor
+              - EmailJS (https://www.emailjs.com)
+              - Netlify Forms (se hospedar no Netlify)
+              - Backend próprio em Node.js/PHP com HTTPS + validação server-side
+            -->
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/xkoarabb"
+              method="POST"
+              novalidate
+            >
+              <!-- Campo oculto: nome do site (para identificação no e-mail) -->
+              <input type="hidden" name="_subject" value="Novo contato via AK Projetos" />
+              <!-- Honeypot anti-spam: campo invisível para humanos -->
+              <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off" />
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label for="nome" class="block text-xs font-semibold text-gray-600 mb-1.5">Nome completo *</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Seu nome"
+                    required
+                    maxlength="100"
+                    class="ak-input w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand"
+                  />
+                </div>
+                <div>
+                  <label for="telefone" class="block text-xs font-semibold text-gray-600 mb-1.5">Telefone / WhatsApp *</label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder="(45) 9XXXX-XXXX"
+                    required
+                    maxlength="20"
+                    class="ak-input w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label for="email" class="block text-xs font-semibold text-gray-600 mb-1.5">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  maxlength="150"
+                  class="ak-input w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label for="servico" class="block text-xs font-semibold text-gray-600 mb-1.5">Tipo de imóvel</label>
+                <select
+                  id="imovel"
+                  name="imovel"
+                  required
+                  class="ak-input w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand bg-white"
+                >
+                  <option value="">Selecione o serviço...</option>
+                  <option value="Comercial">Comercial</option>
+                  <option value="Industrial">Industrial</option>
+                  <option value="Hospitalar">Hospitalar</option>
+                  <option value="Educacional">Educacional</option>
+                  <option value="Residencial">Residencial</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label for="servico" class="block text-xs font-semibold text-gray-600 mb-1.5">Serviço desejado *</label>
+                <select
+                  id="servico"
+                  name="servico"
+                  required
+                  class="ak-input w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand bg-white"
+                >
+                  <option value="">Selecione o serviço...</option>
+                  <option value="Projeto de Prevenção contra Incêndio">Projeto de Prevenção contra Incêndio</option>
+                  <option value="Regularização de Imóveis">Regularização de Imóveis (AVCB/CLCB)</option>
+                  <option value="Projeto Arquitetônico">Projeto Arquitetônico</option>
+                  <option value="Laudo Técnico">Laudo Técnico</option>
+                  <option value="Consultoria Técnica">Consultoria Técnica</option>
+                  <option value="Vigilância Sanitária">Vigilância Sanitária</option>
+                  <option value="As Built">As Built</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="mb-5">
+                <label for="mensagem" class="block text-xs font-semibold text-gray-600 mb-1.5">Mensagem *</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows="4"
+                  placeholder="Descreva brevemente sua necessidade..."
+                  required
+                  maxlength="500"
+                  class="ak-input w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand resize-none"
+                ></textarea>
+                <p id="char-count" class="text-right text-xs text-gray-400 mt-1">0/500</p>
+              </div>
+
+              <!-- Feedback de envio -->
+              <div id="form-feedback" class="hidden mb-4 p-3 rounded-xl text-sm text-center"></div>
+
+              <button
+                type="submit"
+                id="form-submit-btn"
+                class="w-full bg-brand text-white font-bold py-4 rounded-xl hover:bg-brand-dark transition-all duration-200 text-sm hover:-translate-y-0.5 shadow-lg shadow-orange-900/20"
+              >
+                <span id="submit-label">Enviar Mensagem</span>
+                <span id="submit-loading" class="hidden">
+                  <i class="ri-loader-4-line animate-spin mr-2"></i>Enviando...
+                </span>
+              </button>
+
+              <p class="text-center text-xs text-gray-400 mt-3">
+                <i class="ri-lock-line text-brand mr-1"></i>
+                Seus dados são enviados com total segurança.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ================================================
+     FOOTER
+  ================================================ -->
+<footer class="text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+      <!-- Coluna 1: Logo, sobre e botões de contato -->
+      <div>
+        <img src="assets/AKPROJETOSECONSULTORIABRANCO.png" alt="AK Projetos e Consultoria" class="h-10 w-auto object-contain mb-6" />
+        <p class="text-white/60 text-sm leading-relaxed mb-6">
+          Engenharia e arquitetura de excelência. Regularização, projetos e consultoria técnica.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://wa.me/+554599831231?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand hover:border-brand transition-all">
+            <i class="ri-whatsapp-line text-lg"></i>
+          </a>
+          <a href="mailto:atendimento@projetosak.com.br" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand hover:border-brand transition-all">
+            <i class="ri-mail-line text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Contato e Navegação -->
+      <div class="space-y-8">
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-widest text-white/50 mb-4">Endereço</h4>
+          <p class="text-sm text-white/80">Rua Armando Avanci, 349<br>Toledo, PR - CEP 85906683</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-widest text-white/50 mb-4">Telefone / WhatsApp</h4>
+          <p class="text-sm text-white/80">(45) 99983-1231</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-widest text-white/50 mb-4">E-mail</h4>
+          <p class="text-sm text-white/80">atendimento@projetosak.com.br</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-xs uppercase tracking-widest text-white/50 mb-4">Navegação</h4>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li><button class="nav-btn hover:text-brand transition-colors" data-target="servicos">Serviços</button></li>
+            <li><button class="nav-btn hover:text-brand transition-colors" data-target="sobre">Sobre</button></li>
+            <li><button class="nav-btn hover:text-brand transition-colors" data-target="contato">Contato</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Coluna 3: Nossos Serviços (com ícones laranjas) -->
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-widest text-white/50 mb-6">Nossos Serviços</h4>
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Projeto de Prevenção contra Incêndio</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> AVCB / CLCB</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Sistema de Hidrantes</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Sprinklers e Chuveiros Automáticos</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Alarme e Detecção de Incêndio</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Regularização de Imóveis</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Laudos Técnicos</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Consultoria em Segurança</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Projeto Arquitetônico</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> Vigilância Sanitária</li>
+          <li class="flex items-center gap-3 text-sm text-white/80"><i class="ri-checkbox-circle-line text-brand"></i> As Built</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Rodapé inferior -->
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/30 text-xs">
+        &copy; <span id="footer-year"></span> AK Projetos e Consultoria. Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+  <!-- ================================================
+       BOTÃO WHATSAPP FLUTUANTE
+  ================================================ -->
+  <a
+    id="whatsapp-float"
+    href="https://wa.me/+554599831231?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar pelo WhatsApp"
+    class="fixed bottom-6 right-6 z-50"
+  >
+    <div class="w-14 h-14 bg-[#E84118] rounded-full flex items-center justify-center shadow-xl shadow-[#E84118]/40 hover:scale-110 hover:shadow-[#E84118]/60 transition-all duration-200 ak-whatsapp-pulse">
+      <i class="ri-whatsapp-line text-white text-2xl"></i>
+    </div>
+  </a>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>
